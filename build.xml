@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="SCM-decorators" default="build" basedir=".">
+  <property name="output"               value="${basedir}/output"/>
+  <property name="sources"              value="${basedir}/src"/>
+  <property name="dist"                 value="${basedir}/dist"/>
+  <property name="compile.debug"        value="true"/>
+  <property name="compile.debuglevel"   value="lines,vars,source"/>
+  <property name="compile.deprecation"  value="true"/>
+
+  <target name="clean">
+    <delete dir="${output}"/>
+    <delete dir="${dist}"/>
+  </target>
+
+  <target name="prepare" depends="clean">
+    <mkdir dir="${output}"/>
+    <mkdir dir="${output}/classes"/>
+    <mkdir dir="${output}/META-INF"/>
+    <mkdir dir="${dist}"/>
+  </target>
+
+  <target name="all" depends="prepare">
+    <javac
+
+           includeantruntime="true"
+           srcdir="${sources}"
+           destdir="${output}/classes"
+           excludes=""
+           debug="${compile.debug}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}"
+           debuglevel="${compile.debuglevel}">
+    </javac>
+
+    <jar destfile="${dist}/scm-decorator.jar"
+      basedir="${output}/classes">
+      <manifest>
+        <attribute name="Main-Class"
+            value="com.nerrvana.utils.SCMLogDecorator"/>
+      </manifest>
+    </jar>
+  </target>
+
+</project>
