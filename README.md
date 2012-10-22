@@ -8,19 +8,17 @@ Current version supports SVN only.
 Example
 =======
 
-Output of the command 'svn log -r 123':
+**Output of the command 'svn log -r 123':**
 
-------------------------------------------------------------------------
-r123 | dev  | 2012-12-12 12:12:12 +0000 (Mon, 12 Dec 2012) | 2 lines
+<pre>--------------------------------------------------------------------------
+r123 | john.smith  | 2012-12-12 12:12:12 +0000 (Mon, 12 Dec 2012) | 1 line
 
-Tags entered by user will be deleted on click (was moved to popular).
-Default values for install params to correct process start from any step.
-------------------------------------------------------------------------
+Fixed bug #1234
+--------------------------------------------------------------------------</pre>
 
-Will be converted into:
+**Will be converted into:**
 
-Revision: 123
+<pre>Revision: 123
 Committer: dev
 Date: 2012-12-12 12:12:12 +0000 (Mon, 12 Dec 2012)
-Tags entered by user will be deleted on click (was moved to popular).
-Default values for install params to correct process start from any step.
+Fixed bug #1234</pre>
